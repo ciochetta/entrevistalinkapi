@@ -6,9 +6,9 @@ const db = require('./db');
 
 router.get ('/', async(req,res) => {
 
-  const response = await controller.get_consolidated_sales_data();
+  console.log("new request");
 
-  
+  const response = await controller.get_consolidated_sales_data();
 
   return res.status(200).json(response);
 

@@ -9,8 +9,17 @@ async function get_pipedrive_deals() {
 
   const deals = await got(pipedrive_deals_url);
 
-  return JSON.parse (deals.body).data;
+  return JSON.parse(deals.body).data;
+}
+
+async function get_pipedrive_won_deals() {
+
+  const all_pipedrive_deals = await get_pipedrive_deals()
+
+  const won_deals = all_pipedrive_deals.filter(deal => deal.status === "won")
+
+  return won_deals;
 }
 
 
-module.exports = { get_pipedrive_deals };
+module.exports = { get_pipedrive_deals, get_pipedrive_won_deals };

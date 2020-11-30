@@ -1,5 +1,3 @@
-const sales_db = require('./sales/db');
-
 let cache = {};
 
 function get(key) {
@@ -11,13 +9,4 @@ function set(key, val) {
   cache[key] = val;
 }
 
-async function init_cache() {
-
-
-
-  await require('./sales/db').get_sales();
-
-}
-
-
-module.exports = { get, set, init_cache}
+module.exports = { get, set }
